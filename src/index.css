@@ -1,0 +1,125 @@
+/* ── Google Fonts (must precede tailwindcss import) ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* ── Design tokens ── */
+@theme {
+  /* Navy backgrounds */
+  --color-navy-900: #0D1117;
+  --color-navy-800: #161B22;
+  --color-navy-700: #21262D;
+  --color-navy-600: #30363D;
+
+  /* Text / slate */
+  --color-slate-400: #8B949E;
+  --color-slate-300: #C9D1D9;
+  --color-slate-200: #E6EDF3;
+
+  /* Accent */
+  --color-green-500: #00D09C;
+  --color-green-400: #26E5B0;
+  --color-green-300: #4FFFCA;
+
+  --color-amber-500: #F0A500;
+  --color-amber-400: #FFBE2E;
+
+  --color-red-500:   #FF4757;
+  --color-red-400:   #FF6B78;
+
+  /* Fonts */
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --font-serif:  'DM Serif Display', Georgia, serif;
+}
+
+/* ── Global resets ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0D1117;
+  color: #E6EDF3;
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { width: 100%; min-height: 100svh; }
+
+/* ── Range input track ── */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: #21262D;
+  outline: none;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: currentColor;
+  cursor: pointer;
+  border: 2px solid #0D1117;
+}
+input[type='range']::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: currentColor;
+  cursor: pointer;
+  border: 2px solid #0D1117;
+}
+
+/* ── Animations ── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.apy-animate { animation: countUp 0.6s ease-out forwards; }
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.slide-in-right { animation: slideInRight 0.35s ease-out forwards; }
+.slide-in-left  { animation: slideInLeft  0.35s ease-out forwards; }
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #161B22 25%, #21262D 50%, #161B22 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,208,156,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(0,208,156,0); }
+}
+.pulse-green { animation: pulseGreen 2.5s infinite; }
+
+/* ── Hover card glow ── */
+.invest-card:hover {
+  border-color: #00D09C !important;
+  box-shadow: 0 0 0 1px rgba(0,208,156,0.2), 0 4px 24px rgba(0,208,156,0.1);
+}
+
+/* ── Details/summary reset ── */
+details summary::-webkit-details-marker { display: none; }
+
+/* ── Scrollbar (webkit) ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0D1117; }
+::-webkit-scrollbar-thumb { background: #21262D; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #30363D; }
