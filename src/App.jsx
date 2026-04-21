@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import Products from './pages/Products'
 import Marketplace from './pages/Marketplace'
 import HowItWorks from './pages/HowItWorks'
+import StashPass from './pages/StashPass'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -33,6 +34,7 @@ function Layout() {
           <Route path="/onboarding"    element={<Onboarding />} />
           <Route path="/dashboard"     element={<Dashboard />} />
           <Route path="/products"      element={<Products />} />
+          <Route path="/stash-pass"    element={<StashPass />} />
         </Routes>
       </main>
       {!isOnboarding && !isDashboard && <Footer />}

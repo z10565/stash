@@ -8,6 +8,7 @@ import {
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RTooltip
 } from 'recharts'
 import PortfolioChart from '../components/charts/PortfolioChart'
+import StashPassWidget from '../components/stashpass/StashPassWidget'
 import {
   userProfile, portfolioHistory, holdings, holdingColors,
   transactions, formatCurrency, formatDate
@@ -300,10 +301,13 @@ export default function Dashboard() {
           <HoldingsTable loading={loading} />
         </div>
 
-        {/* Doughnut */}
-        <div className="rounded-2xl border p-6" style={{ backgroundColor: '#111827', borderColor: '#1F2937' }}>
-          <h2 className="text-lg font-bold text-white mb-4">Allocation</h2>
-          <HoldingsPie loading={loading} />
+        {/* Doughnut + Stash Pass widget stacked in the right column */}
+        <div className="flex flex-col gap-6">
+          <div className="rounded-2xl border p-6" style={{ backgroundColor: '#111827', borderColor: '#1F2937' }}>
+            <h2 className="text-lg font-bold text-white mb-4">Allocation</h2>
+            <HoldingsPie loading={loading} />
+          </div>
+          <StashPassWidget loading={loading} />
         </div>
 
         {/* Stash suggests */}

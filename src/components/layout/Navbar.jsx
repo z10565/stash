@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { STASH_PASS } from '../../data/mockData'
 
 // Stash logomark — green dot + wordmark in DM Serif
 function Logo() {
@@ -27,9 +28,12 @@ function Logo() {
   )
 }
 
+const TIER_DOT = { silver: '#C0C0C0', gold: '#D4AF37', platinum: '#E5E4E2' }
+
 const NAV_LINKS = [
   { label: 'How it works', to: '/how-it-works' },
   { label: 'Marketplace',  to: '/marketplace' },
+  { label: 'Stash Pass',   to: '/stash-pass', tierBadge: true },
   { label: 'Brokers',      to: '/marketplace' },
   { label: 'Learn',        to: '/how-it-works' },
 ]
@@ -63,12 +67,19 @@ export default function Navbar() {
             <Link
               key={l.label}
               to={l.to}
-              className="text-sm font-medium transition-colors"
+              className="text-sm font-medium transition-colors flex items-center gap-1.5"
               style={{ color: isActive(l.to) ? '#00D09C' : '#8B949E' }}
               onMouseEnter={e => { if (!isActive(l.to)) e.currentTarget.style.color = '#C9D1D9' }}
               onMouseLeave={e => { if (!isActive(l.to)) e.currentTarget.style.color = '#8B949E' }}
             >
               {l.label}
+              {l.tierBadge && (
+                <span
+                  className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: TIER_DOT[STASH_PASS.currentTier] }}
+                  title={`${STASH_PASS.tiers[STASH_PASS.currentTier].label} tier`}
+                />
+              )}
             </Link>
           ))}
         </div>
@@ -116,11 +127,17 @@ export default function Navbar() {
             <Link
               key={l.label}
               to={l.to}
-              className="text-sm font-medium"
+              className="text-sm font-medium flex items-center gap-2"
               style={{ color: isActive(l.to) ? '#00D09C' : '#8B949E' }}
               onClick={() => setMOpen(false)}
             >
               {l.label}
+              {l.tierBadge && (
+                <span
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: TIER_DOT[STASH_PASS.currentTier] }}
+                />
+              )}
             </Link>
           ))}
           <hr style={{ borderColor: '#21262D' }} />

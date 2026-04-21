@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom'
-import { LayoutDashboard, BarChart2, PlusCircle, Settings } from 'lucide-react'
+import { LayoutDashboard, BarChart2, PlusCircle, CreditCard, Settings } from 'lucide-react'
 
 const items = [
-  { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-  { label: 'Products', href: '/products', icon: BarChart2 },
-  { label: 'Invest', href: '/onboarding', icon: PlusCircle, primary: true },
-  { label: 'Settings', href: '#', icon: Settings },
+  { label: 'Dashboard',  href: '/dashboard',  icon: LayoutDashboard },
+  { label: 'Products',   href: '/products',   icon: BarChart2 },
+  { label: 'Invest',     href: '/onboarding', icon: PlusCircle, primary: true },
+  { label: 'Pass',       href: '/stash-pass', icon: CreditCard },
+  { label: 'Settings',   href: '#',           icon: Settings },
 ]
 
 export default function BottomNav() {

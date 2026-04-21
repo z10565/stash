@@ -468,6 +468,25 @@ export const transactions = [
   },
 ];
 
+// ── Stash Pass ────────────────────────────────────────────────────────────────
+export const STASH_PASS = {
+  currentTier: 'silver',
+  totalInvested: 1250,
+  tiers: {
+    silver:   { threshold: 500,   label: 'Silver',   color: '#C0C0C0' },
+    gold:     { threshold: 5000,  label: 'Gold',     color: '#D4AF37' },
+    platinum: { threshold: 25000, label: 'Platinum', color: '#E5E4E2' },
+  },
+  benefits: {
+    silver:   ['5% off airBaltic flights', 'All broker products', 'Basic auto-invest', 'Community access'],
+    gold:     ['10% off airBaltic flights', 'Free travel insurance', '10% off partner hotels', 'Priority support', 'Advanced auto-invest'],
+    platinum: ['15% off airBaltic flights', 'Airport lounge access', 'Dedicated account manager', 'Exclusive broker products', 'Investor events'],
+  },
+  nextTierGap: 3750,
+  cardNumber: '4291',
+  memberSince: 'March 2025',
+};
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 export const formatCurrency = (n, decimals = 0) =>
   '€' + n.toLocaleString('en-EU', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
