@@ -207,6 +207,29 @@ export default function Landing() {
                   See how it works
                 </Link>
               </div>
+
+              {/* Powered by AI strip */}
+              <div className="flex flex-wrap gap-2 mt-5 justify-center lg:justify-start">
+                {[
+                  { label: 'Compound visualiser', to: null },
+                  { label: 'Mia learning guide',  to: '/learn' },
+                  { label: 'Ribbit market AI',    to: '/ribbit' },
+                ].map(({ label, to }) => {
+                  const Tag = to ? Link : 'span'
+                  return (
+                    <Tag
+                      key={label}
+                      {...(to ? { to } : {})}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border transition-all"
+                      style={{ borderColor: '#21262D', color: '#8B949E', backgroundColor: '#161B22' }}
+                      onMouseEnter={to ? e => { e.currentTarget.style.borderColor = '#00D09C'; e.currentTarget.style.color = '#00D09C' } : undefined}
+                      onMouseLeave={to ? e => { e.currentTarget.style.borderColor = '#21262D'; e.currentTarget.style.color = '#8B949E' } : undefined}
+                    >
+                      {label}
+                    </Tag>
+                  )
+                })}
+              </div>
             </div>
 
             {/* Right: floating widget preview */}

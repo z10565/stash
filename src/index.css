@@ -115,6 +115,29 @@ input[type='range']::-moz-range-thumb {
   box-shadow: 0 0 0 1px rgba(0,208,156,0.2), 0 4px 24px rgba(0,208,156,0.1);
 }
 
+/* ── Mia avatar float ── */
+@keyframes miaFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.mia-float { animation: miaFloat 3s ease-in-out infinite; }
+
+/* ── AI chat: typing indicator ── */
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%           { transform: translateY(-6px); }
+}
+.typing-dot { animation: typingBounce 1.2s ease-in-out infinite; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Ribbit avatar pulse */
+@keyframes ribbitPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,200,150,0.4); }
+  50%      { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(0,200,150,0); }
+}
+.ribbit-pulse { animation: ribbitPulse 2.5s ease-in-out infinite; }
+
 /* ── Stash Pass: card flip ── */
 .card-flip { perspective: 1000px; }
 
